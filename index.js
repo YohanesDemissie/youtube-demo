@@ -30,7 +30,14 @@ function show(data){ //once above promise is met and has a returned, usable data
     console.log(video);
     let div = document.createElement('div');
     div.classList.add('box');
+    let title = document.createElement('h3');
+    title.innerHTML = video.snippet.title
+    let image = document.createElement('img');
     let description = document.createTextNode(video.snippet.description); //snippet.description is non-arbitrary. part of the return key value pairs of json object
+    image.setAttribute('src', video.snippet.thumbnails.default.url) // dynamically renders image url
+
+    div.appendChild(title);
+    div.appendChild(image);
     div.appendChild(description);
     //below we will dynamically render video title
     let span = document.createElement('span');
